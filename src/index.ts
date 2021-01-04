@@ -8,9 +8,13 @@ import "leaflet/dist/leaflet.css";
 import icon from "leaflet/dist/images/marker-icon-2x.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
+const url =
+  "https://api.waqi.info/feed/modena/?token=c8f3fb8806f350497f7a43ce886f000306bced4a";
+
 const mymap = L.map("mapid").setView([44.644249, 10.923191], 13);
 
 mymap.dragging.disable();
+mymap.scrollWheelZoom.disable();
 
 L.tileLayer(
   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ25vbW15cyIsImEiOiJja2pibDFmY2wwbHNoMnVzY2s4cXlrNmtvIn0.0iJX7gXFiTMCqaQHrtwkLA",

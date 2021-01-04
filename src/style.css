@@ -25,7 +25,7 @@ body {
 }
 
 header {
-  font-size: 48px;
+  font-size: 4rem;
   font-weight: 700;
   border: 0;
   margin: 3rem 0 2rem 0;
@@ -74,6 +74,9 @@ button p:hover {
 
 .city-details-container {
   position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   top: 30%;
   left: 50%;
   transform: translate(-50%);
@@ -84,4 +87,26 @@ button p:hover {
   z-index: 900;
   -webkit-box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
+}
+
+.city-details-container div {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-details-container div h2 {
+  font-size: 3rem;
+}
+
+.city-details-container div p {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+hr {
+  margin: 0;
+  border-left: 1px thick black;
+  width: 1px;
+  height: 70%;
+  opacity: 0.3;
 }
