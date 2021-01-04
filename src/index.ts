@@ -3,10 +3,14 @@
 // Import styles
 import "../src/reset.css";
 import "../src/style.css";
-import * as L from "leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import icon from "leaflet/dist/images/marker-icon-2x.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
-const mymap = L.map("mapid").setView([51.505, -0.09], 13);
+const mymap = L.map("mapid").setView([44.644249, 10.923191], 13);
+
+mymap.dragging.disable();
 
 L.tileLayer(
   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ25vbW15cyIsImEiOiJja2pibDFmY2wwbHNoMnVzY2s4cXlrNmtvIn0.0iJX7gXFiTMCqaQHrtwkLA",
@@ -17,6 +21,16 @@ L.tileLayer(
     id: "mapbox/streets-v11",
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: "your.mapbox.access.token",
+    accessToken:
+      "pk.eyJ1IjoiZ25vbW15cyIsImEiOiJja2pibDFmY2wwbHNoMnVzY2s4cXlrNmtvIn0.0iJX7gXFiTMCqaQHrtwkLA",
   }
 ).addTo(mymap);
+
+const iconMarker = L.icon({
+  iconUrl: icon,
+  iconSize: [30, 50],
+  iconAnchor: [22, 96],
+  shadowUrl: iconShadow,
+});
+
+L.marker([44.644249, 10.923191], { icon: iconMarker }).addTo(mymap);

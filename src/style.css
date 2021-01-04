@@ -11,13 +11,13 @@ body {
 
 #top-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  height: 30vh;
+  height: 40vh;
 }
 #mapid {
-  height: 70vh;
+  height: 60vh;
 }
 
 .input-section {
@@ -28,15 +28,18 @@ header {
   font-size: 48px;
   font-weight: 700;
   border: 0;
+  margin: 3rem 0 2rem 0;
 }
 
 input {
-  width: 300px;
-  height: 40px;
+  width: 350px;
+  height: 3rem;
   border: 0;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   padding: 1rem;
+  -webkit-box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
 }
 
 input:focus {
@@ -44,8 +47,8 @@ input:focus {
 }
 
 button {
-  height: 40px;
-  width: 40px;
+  height: 3rem;
+  width: 3rem;
   font-size: 1.5rem;
   border: none;
   cursor: pointer;
@@ -53,6 +56,8 @@ button {
   background-color: #000;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  -webkit-box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
 }
 
 button:focus {
@@ -65,4 +70,18 @@ button p {
 
 button p:hover {
   margin-left: 6px;
+}
+
+.city-details-container {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 60vw;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 25px;
+  z-index: 900;
+  -webkit-box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
 }
