@@ -25,10 +25,10 @@ body {
 }
 
 header {
-  font-size: 4rem;
+  font-size: 5vw;
   font-weight: 700;
   border: 0;
-  margin: 3rem 0 2rem 0;
+  margin: 2rem 0 1rem 0;
 }
 
 input {
@@ -80,8 +80,8 @@ button p:hover {
   top: 30%;
   left: 50%;
   transform: translate(-50%);
-  width: 60vw;
-  height: 250px;
+  width: 70vw;
+  height: 30vh;
   background-color: #fff;
   border-radius: 25px;
   z-index: 900;
@@ -95,11 +95,11 @@ button p:hover {
 }
 
 .city-details-container div h2 {
-  font-size: 3rem;
+  font-size: 3vw;
 }
 
 .city-details-container div p {
-  font-size: 1.5rem;
+  font-size: 2vw;
   font-style: italic;
 }
 
