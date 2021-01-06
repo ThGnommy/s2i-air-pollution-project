@@ -1,12 +1,15 @@
-import { mymap } from "./../api/leaflet";
+const getGeolocation = () => {
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+      //   latLng = [position.coords.latitude, position.coords.longitude];
+      console.log("Geolocation available!");
+      return [latitude, longitude] ?? [0, 0];
+    });
+  } else {
+    console.log("Geolocation is disable");
+  }
+};
 
-if ("geolocation" in navigator) {
-  const currentPosition = navigator.geolocation.getCurrentPosition(
-    (position) => {
-      return [position.coords.latitude, position.coords.longitude];
-    }
-  );
-  mymap.setView(currentPosition, 13);
-} else {
-  console.log("Geolocation is disable");
-}
+console.log(getGeolocation());

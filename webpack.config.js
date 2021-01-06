@@ -6,7 +6,11 @@ const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "production",
-  entry: "./src/index.ts",
+  entry: {
+    app: "./src/index.ts",
+    leaflet: "./src/api/leaflet.ts",
+    geolocal: "./src/util/geolocal.ts",
+  },
   devtool: "inline-source-map",
   devtool: NodeEnvPlugin.devtool,
   devServer: {
