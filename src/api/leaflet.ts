@@ -1,10 +1,12 @@
-import L from "leaflet";
+import { ok } from "assert";
+import L, { LatLngExpression } from "leaflet";
 import icon from "leaflet/dist/images/marker-icon-2x.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/leaflet.css";
-// import { latitude, longitude } from "./../util/geolocal";
 
 export const mymap = L.map("mapid");
+
+let mapMarker = {};
 
 L.tileLayer(
   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ25vbW15cyIsImEiOiJja2pibDFmY2wwbHNoMnVzY2s4cXlrNmtvIn0.0iJX7gXFiTMCqaQHrtwkLA",
@@ -21,16 +23,23 @@ L.tileLayer(
 ).addTo(mymap);
 
 mymap.setView([51.505, -0.09], 13);
-mymap.panBy([0, -100]);
 
-const iconMarker = L.icon({
+export const iconMarker = L.icon({
   iconUrl: icon,
   iconSize: [30, 50],
   iconAnchor: [22, 96],
   shadowUrl: iconShadow,
 });
 
-L.marker([51.505, -0.09], { icon: iconMarker }).addTo(mymap);
+mapMarker = L.marker([51.505, -0.09], { icon: iconMarker }).addTo(mymap);
 
-// mymap.dragging.disable();
-// mymap.scrollWheelZoom.disable();
+export const changeLocation = (latlong: LatLngExpression) => {
+  mapMarker = L.marker(latlong, { icon: iconMarker }).addTo(mymap);
+  mymap.flyTo(latlong, 13);
+  mymap.once("moveend", () => {
+    mymap.panBy([0, -100]);
+  });
+};
+
+mymap.dragging.disable();
+mymap.scrollWheelZoom.disable();
