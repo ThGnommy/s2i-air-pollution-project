@@ -2,6 +2,7 @@
 
 body {
   font-family: "Rubik", sans-serif;
+  overflow: hidden;
 }
 
 #container {
@@ -77,7 +78,7 @@ button p:hover {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  top: 30%;
+  top: 150%;
   left: 50%;
   transform: translate(-50%);
   width: 70vw;
@@ -87,20 +88,26 @@ button p:hover {
   z-index: 900;
   -webkit-box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
+  animation: show 1s ease-in-out 1s forwards;
 }
 
 .city-details-container div {
   display: flex;
   flex-direction: column;
+  margin: 2rem;
 }
 
 .city-details-container div h2 {
-  font-size: 3vw;
+  font-size: 2.5vw;
 }
 
 .city-details-container div p {
-  font-size: 2vw;
+  font-size: 1.5vw;
   font-style: italic;
+}
+
+#city {
+  word-break: keep-all;
 }
 
 hr {
@@ -109,4 +116,41 @@ hr {
   width: 1px;
   height: 70%;
   opacity: 0.3;
+}
+
+.show-animation {
+  animation: show 1s linear 1s forwards;
+}
+
+.hide-animation {
+  animation: show 1s linear 1s forwards;
+}
+
+@keyframes show {
+  0% {
+    top: 150%;
+  }
+  100% {
+    top: 30%;
+  }
+}
+
+@keyframes hide {
+  0% {
+    top: 30%;
+  }
+  100% {
+    top: 150%;
+  }
+}
+
+.hide-details div {
+  display: none;
+}
+
+#error-message {
+  display: none;
+  color: red;
+  font-size: 2vw;
+  font-style: italic;
 }

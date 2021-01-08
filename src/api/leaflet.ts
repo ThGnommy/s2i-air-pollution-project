@@ -1,4 +1,3 @@
-import { ok } from "assert";
 import L, { LatLngExpression } from "leaflet";
 import icon from "leaflet/dist/images/marker-icon-2x.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
@@ -7,6 +6,8 @@ import "leaflet/dist/leaflet.css";
 export const mymap = L.map("mapid", { zoomControl: false });
 
 let mapMarker = {};
+
+mymap.setView([51.505, -0.09], 13);
 
 L.tileLayer(
   "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ25vbW15cyIsImEiOiJja2pibDFmY2wwbHNoMnVzY2s4cXlrNmtvIn0.0iJX7gXFiTMCqaQHrtwkLA",
@@ -22,8 +23,6 @@ L.tileLayer(
   }
 ).addTo(mymap);
 
-mymap.setView([51.505, -0.09], 13);
-
 export const iconMarker = L.icon({
   iconUrl: icon,
   iconSize: [30, 50],
@@ -31,7 +30,9 @@ export const iconMarker = L.icon({
   shadowUrl: iconShadow,
 });
 
-mapMarker = L.marker([51.505, -0.09], { icon: iconMarker }).addTo(mymap);
+mymap.panBy([0, -100]);
+
+export const defaultLocation = () => {};
 
 export const changeLocation = (latlong: LatLngExpression) => {
   mymap.flyTo(latlong, 13);
