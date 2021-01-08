@@ -9,7 +9,7 @@ module.exports = {
   entry: {
     app: "./src/index.ts",
     leaflet: "./src/api/leaflet.ts",
-    geolocal: "./src/util/geolocal.ts",
+    geolocal: "./src/util/fetch.ts",
   },
   devtool: "inline-source-map",
   devtool: NodeEnvPlugin.devtool,

@@ -4,7 +4,7 @@ import icon from "leaflet/dist/images/marker-icon-2x.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/leaflet.css";
 
-export const mymap = L.map("mapid");
+export const mymap = L.map("mapid", { zoomControl: false });
 
 let mapMarker = {};
 
@@ -34,12 +34,13 @@ export const iconMarker = L.icon({
 mapMarker = L.marker([51.505, -0.09], { icon: iconMarker }).addTo(mymap);
 
 export const changeLocation = (latlong: LatLngExpression) => {
-  mapMarker = L.marker(latlong, { icon: iconMarker }).addTo(mymap);
   mymap.flyTo(latlong, 13);
   mymap.once("moveend", () => {
     mymap.panBy([0, -100]);
+    mapMarker = L.marker(latlong, { icon: iconMarker }).addTo(mymap);
   });
 };
 
+// Disable user interactivity
 mymap.dragging.disable();
 mymap.scrollWheelZoom.disable();
