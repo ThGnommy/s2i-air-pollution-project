@@ -6,7 +6,27 @@ import "../src/style.css";
 import { LatLngExpression } from "leaflet";
 import { changeLocation } from "./api/leaflet";
 import { fetchAutoGeolocation } from "./util/fetch";
-import { errorMessage, detailsContainer } from "./util/selectors";
+import {
+  errorMessage,
+  detailsContainer,
+  input,
+  button,
+} from "./util/selectors";
+
+let inputValue: string = "";
+
+input.addEventListener("input", (e: any) => {
+  inputValue = e.target.value;
+});
+
+button.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (inputValue.trim().length > 0) {
+    fetchAutoGeolocation(
+      `https://api.waqi.info/feed/${inputValue}/?token=c8f3fb8806f350497f7a43ce886f000306bced4a`
+    );
+  }
+});
 
 const getGeolocation = () => {
   if ("geolocation" in navigator) {

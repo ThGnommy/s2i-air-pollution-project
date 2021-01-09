@@ -32,8 +32,6 @@ export const iconMarker = L.icon({
 
 mymap.panBy([0, -100]);
 
-export const defaultLocation = () => {};
-
 export const changeLocation = (latlong: LatLngExpression) => {
   mymap.flyTo(latlong, 13);
   mymap.once("moveend", () => {

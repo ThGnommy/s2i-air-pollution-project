@@ -10,6 +10,8 @@ export const city = document.getElementById("city")! as HTMLParagraphElement;
 
 export const input = document.querySelector("input")! as HTMLInputElement;
 
+export const button = document.querySelector("button")! as HTMLButtonElement;
+
 export const detailsContainer = document.getElementById(
   "details-container"
 )! as HTMLElement;
