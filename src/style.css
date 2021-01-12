@@ -149,7 +149,7 @@ hr {
 }
 
 .hide-details div {
-  display: none;
+  display: none !important;
 }
 
 #error-message {
@@ -199,7 +199,53 @@ hr {
   }
 }
 
+#slider-container {
+  display: none;
+}
+
+/* #slider-container div {
+  display: none;
+  opacity: 0;
+} */
+
 /******** MEDIA QUERIES ********/
 
 @media screen and (max-width: 900px) {
+  #slider-container {
+    display: flex;
+  }
+
+  .city-details-container div:not(.slider-container) {
+    display: none;
+  }
+
+  #slider-container div.show {
+    display: flex;
+    animation: slide-on 0.5s linear forwards;
+  }
+
+  .fa-arrow-left {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translate(-50%);
+    cursor: pointer;
+  }
+
+  .fa-arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translate(-50%);
+    cursor: pointer;
+  }
+
+  @keyframes slide-on {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }

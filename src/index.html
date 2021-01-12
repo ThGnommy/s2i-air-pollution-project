@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advanced JS</title>
@@ -24,9 +30,18 @@
       <div id="toast"></div>
       <section id="details-container" class="city-details-container">
         <div id="slider-container">
-          <div class="slider">Slide 1</div>
-          <div class="slider">Slide 2</div>
-          <div class="slider">Slide 3</div>
+          <div class="slider">
+            <h2>Air Quality</h2>
+            <p id="air-quality"></p>
+          </div>
+          <div class="slider">
+            <h2>Local Time</h2>
+            <p id="local-time"></p>
+          </div>
+          <div class="slider">
+            <h2>City</h2>
+            <p id="city"></p>
+          </div>
           <i id="arrow-left" class="fas fa-arrow-left"></i>
           <i id="arrow-right" class="fas fa-arrow-right"></i>
         </div>
@@ -42,7 +57,6 @@
           <h2>City</h2>
           <p id="city"></p>
         </div>
-        <span id="error-message"></span>
       </section>
       <div id="mapid"></div>
     </div>

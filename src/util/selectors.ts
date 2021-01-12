@@ -1,12 +1,14 @@
-export const airQuality = document.getElementById(
-  "air-quality"
-)! as HTMLHeadingElement;
+export const airQuality = document.querySelectorAll(
+  "#air-quality"
+)! as NodeListOf<HTMLParagraphElement>;
 
-export const localTime = document.getElementById(
-  "local-time"
-)! as HTMLParagraphElement;
+export const localTime = document.querySelectorAll(
+  "#local-time"
+)! as NodeListOf<HTMLParagraphElement>;
 
-export const city = document.getElementById("city")! as HTMLParagraphElement;
+export const city = document.querySelectorAll(
+  "#city"
+)! as NodeListOf<HTMLParagraphElement>;
 
 export const input = document.querySelector("input")! as HTMLInputElement;
 
@@ -16,10 +18,6 @@ export const detailsContainer = document.getElementById(
   "details-container"
 )! as HTMLElement;
 
-export const errorMessage = document.getElementById(
-  "error-message"
-)! as HTMLSpanElement;
-
-export const toast = document.getElementById(
-  "city-not-found"
-)! as HTMLSpanElement;
+export const mobileDetailsContainer = document.getElementById(
+  "slider-container"
+)! as HTMLDivElement;

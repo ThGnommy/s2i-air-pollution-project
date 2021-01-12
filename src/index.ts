@@ -6,12 +6,8 @@ import "../src/style.css";
 import { LatLngExpression } from "leaflet";
 import { changeLocation } from "./api/leaflet";
 import { fetchAutoGeolocation, fetchOnInput } from "./util/fetch";
-import {
-  errorMessage,
-  detailsContainer,
-  input,
-  button,
-} from "./util/selectors";
+import { input, button } from "./util/selectors";
+import { showMessageError } from "./util/utility";
 
 let inputValue: string = "";
 
@@ -47,7 +43,10 @@ const getGeolocation = () => {
 };
 
 const handleError = (error: any) => {
-  detailsContainer.classList.add("hide-details");
+  showMessageError();
+  const errorMessage = document.getElementById(
+    "error-message"
+  )! as HTMLSpanElement;
   switch (error.code) {
     case error.PERMISSION_DENIED:
       errorMessage.innerHTML = "Unable to access your location.";

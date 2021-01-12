@@ -10,8 +10,9 @@ module.exports = {
     app: "./src/index.ts",
     leaflet: "./src/api/leaflet.ts",
     fetch: "./src/util/fetch.ts",
+    slider: "./src/util/slider.ts",
   },
-  devtool: "inline-source-map",
+  // devtool: "inline-source-map",
   devtool: NodeEnvPlugin.devtool,
   devServer: {
     open: true,
@@ -50,5 +51,10 @@ module.exports = {
   },
   resolve: {
     extensions: [".ts", ".js"],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
   },
 };
