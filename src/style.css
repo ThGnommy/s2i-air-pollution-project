@@ -32,6 +32,10 @@ header {
   margin: 2rem 0 1rem 0;
 }
 
+form {
+  display: flex;
+}
+
 input {
   width: 350px;
   height: 3rem;
@@ -153,4 +157,49 @@ hr {
   color: red;
   font-size: 2vw;
   font-style: italic;
+}
+
+#toast span {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 8px;
+  -webkit-box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
+}
+
+#toast span.show-toast {
+  visibility: visible;
+  animation: toast-animation 3s linear;
+}
+
+@keyframes toast-animation {
+  0% {
+    bottom: 0;
+    opacity: 0;
+  }
+  25% {
+    bottom: 50px;
+    opacity: 1;
+  }
+  75% {
+    bottom: 50px;
+    opacity: 1;
+  }
+  100% {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+/******** MEDIA QUERIES ********/
+
+@media screen and (max-width: 900px) {
 }

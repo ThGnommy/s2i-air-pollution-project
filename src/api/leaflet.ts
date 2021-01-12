@@ -10,7 +10,7 @@ let mapMarker = {};
 mymap.setView([51.505, -0.09], 13);
 
 L.tileLayer(
-  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ25vbW15cyIsImEiOiJja2pibDFmY2wwbHNoMnVzY2s4cXlrNmtvIn0.0iJX7gXFiTMCqaQHrtwkLA",
+  `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${process.env.MAPBOX_TOKEN}`,
   {
     attribution:
       'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -18,8 +18,7 @@ L.tileLayer(
     id: "mapbox/streets-v11",
     tileSize: 512,
     zoomOffset: -1,
-    accessToken:
-      "pk.eyJ1IjoiZ25vbW15cyIsImEiOiJja2pibDFmY2wwbHNoMnVzY2s4cXlrNmtvIn0.0iJX7gXFiTMCqaQHrtwkLA",
+    accessToken: process.env.MAPBOX_TOKEN,
   }
 ).addTo(mymap);
 
@@ -43,3 +42,4 @@ export const changeLocation = (latlong: LatLngExpression) => {
 // Disable user interactivity
 mymap.dragging.disable();
 mymap.scrollWheelZoom.disable();
+mymap.touchZoom.disable();

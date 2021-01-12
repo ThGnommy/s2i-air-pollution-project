@@ -19,3 +19,7 @@ export const detailsContainer = document.getElementById(
 export const errorMessage = document.getElementById(
   "error-message"
 )! as HTMLSpanElement;
+
+export const toast = document.getElementById(
+  "city-not-found"
+)! as HTMLSpanElement;
