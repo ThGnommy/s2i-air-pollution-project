@@ -68,32 +68,46 @@ const handleError = (error: any) => {
 };
 
 const showContainerDetails = async () => {
-  // If the permission is already set on start, show the description container
-  navigator.permissions.query({ name: "geolocation" }).then(function (result) {
-    if (result.state == "granted") {
-      detailsContainer.classList.add("show-details-container");
-    } else if (result.state == "denied") {
-      detailsContainer.classList.add("show-details-container");
-    }
-  });
-
-  // If the user click on the permission buttons, show the description container
-  navigator.permissions
+  // check for tablet and mobile
+  const isNotDesktop = window.matchMedia("(max-width: 1024px)").matches;
+  const permission = await navigator.permissions
     .query({ name: "geolocation" })
-    .then((permissionStatus) => {
-      permissionStatus.onchange = function () {
-        switch (this.state) {
-          case "granted":
-            detailsContainer.classList.add("show-details-container");
-            break;
-          case "denied":
-            detailsContainer.classList.add("show-details-container");
-            break;
-          default:
-            break;
-        }
-      };
+    .then((permission) => {
+      return permission.state;
     });
+
+  if (isNotDesktop && permission !== "prompt") {
+    detailsContainer.classList.add("show-details-container");
+  } else {
+    // If the permission is already set on start, show the description container
+    navigator.permissions
+      .query({ name: "geolocation" })
+      .then(function (result) {
+        if (result.state == "granted") {
+          detailsContainer.classList.add("show-details-container");
+        } else if (result.state == "denied") {
+          detailsContainer.classList.add("show-details-container");
+        }
+      });
+
+    // If the user click on the permission buttons, show the description container
+    navigator.permissions
+      .query({ name: "geolocation" })
+      .then((permissionStatus) => {
+        permissionStatus.onchange = function () {
+          switch (this.state) {
+            case "granted":
+              detailsContainer.classList.add("show-details-container");
+              break;
+            case "denied":
+              detailsContainer.classList.add("show-details-container");
+              break;
+            default:
+              break;
+          }
+        };
+      });
+  }
 };
 
 getGeolocation();

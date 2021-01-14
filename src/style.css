@@ -257,6 +257,9 @@ button p:hover {
   .city-details-container div p {
     font-size: 4vw;
   }
+  #error-message {
+    font-size: 4vw;
+  }
 }
 
 @media screen and (max-width: 425px) {

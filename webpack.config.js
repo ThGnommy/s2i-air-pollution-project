@@ -17,6 +17,7 @@ module.exports = {
   devServer: {
     open: true,
     contentBase: path.resolve(__dirname, "dist"),
+    disableHostCheck: true,
   },
   plugins: [
     new CleanWebpackPlugin(),
