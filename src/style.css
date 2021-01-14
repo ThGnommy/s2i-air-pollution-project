@@ -158,7 +158,7 @@ button p:hover {
   z-index: 1000;
   left: 50%;
   transform: translate(-50%);
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 1rem;
   color: #fff;
   background-color: rgba(255, 0, 0, 0.7);
@@ -194,11 +194,6 @@ button p:hover {
 #slider-container {
   display: none;
 }
-
-/* #slider-container div {
-  display: none;
-  opacity: 0;
-} */
 
 /******** MEDIA QUERIES ********/
 
@@ -239,5 +234,39 @@ button p:hover {
     to {
       opacity: 1;
     }
+  }
+
+  .city-details-container div h2 {
+    font-size: 3vw;
+  }
+
+  .city-details-container div p {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    font-size: 7vw;
+  }
+
+  .city-details-container div h2 {
+    font-size: 5vw;
+  }
+
+  .city-details-container div p {
+    font-size: 4vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  input {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  input {
+    width: 250px;
   }
 }
