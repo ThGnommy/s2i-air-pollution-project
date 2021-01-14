@@ -6,7 +6,7 @@ import "../src/style.css";
 import { LatLngExpression } from "leaflet";
 import { changeLocation } from "./api/leaflet";
 import { fetchAutoGeolocation, fetchOnInput } from "./util/fetch";
-import { input, button } from "./util/selectors";
+import { input, button, detailsContainer } from "./util/selectors";
 import { showMessageError } from "./util/utility";
 
 let inputValue: string = "";
@@ -67,4 +67,34 @@ const handleError = (error: any) => {
   }
 };
 
+const showContainerDetails = async () => {
+  // If the permission is already set on start, show the description container
+  navigator.permissions.query({ name: "geolocation" }).then(function (result) {
+    if (result.state == "granted") {
+      detailsContainer.classList.add("show-details-container");
+    } else if (result.state == "denied") {
+      detailsContainer.classList.add("show-details-container");
+    }
+  });
+
+  // If the user click on the permission buttons, show the description container
+  navigator.permissions
+    .query({ name: "geolocation" })
+    .then((permissionStatus) => {
+      permissionStatus.onchange = function () {
+        switch (this.state) {
+          case "granted":
+            detailsContainer.classList.add("show-details-container");
+            break;
+          case "denied":
+            detailsContainer.classList.add("show-details-container");
+            break;
+          default:
+            break;
+        }
+      };
+    });
+};
+
 getGeolocation();
+showContainerDetails();
