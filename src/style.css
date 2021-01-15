@@ -114,8 +114,38 @@ button p:hover {
   word-break: keep-all;
 }
 
+p#air-quality {
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+}
+
+p.good {
+  color: green;
+}
+
+p.moderate {
+  color: rgb(240, 240, 0);
+}
+
+p.unhealthy-sensitive {
+  color: orange;
+}
+
+p.unhealthy {
+  color: red !important;
+}
+
+p.very-unhealthy {
+  color: darkmagenta;
+}
+
+p.hazardous {
+  color: darkred;
+}
+
 .show-details-container {
   animation: show 1s linear 1s forwards;
+  /* -moz-animation: show 1s linear 1s forwards; */
 }
 
 .hide-animation {
@@ -131,12 +161,12 @@ button p:hover {
   }
 }
 
-@keyframes hide {
+@-moz-keyframes show {
   0% {
-    top: 30%;
+    top: 150%;
   }
   100% {
-    top: 150%;
+    top: 30%;
   }
 }
 
@@ -228,6 +258,15 @@ button p:hover {
   }
 
   @keyframes slide-on {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes slide-on {
     from {
       opacity: 0;
     }

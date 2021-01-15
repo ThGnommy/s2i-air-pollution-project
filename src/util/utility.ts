@@ -1,4 +1,4 @@
-import { detailsContainer } from "./selectors";
+import { airQuality, detailsContainer } from "./selectors";
 
 export const showMessageError = () => {
   const message = document.createElement("span");
@@ -20,4 +20,30 @@ export const setMultipleHtmlElements = (
   Array.from(node).forEach((element) => {
     element.innerHTML = text;
   });
+};
+
+export const setMultipleCSSClass = (
+  node: NodeListOf<HTMLParagraphElement>,
+  CssClass: string
+) => {
+  Array.from(node).forEach((element) => {
+    element.classList.add(CssClass);
+  });
+};
+
+export const removeAllCSSClass = (node: NodeListOf<HTMLParagraphElement>) => {
+  Array.from(node).forEach((element) => {
+    element.removeAttribute("class");
+  });
+};
+
+export const handleAirQualityColor = (result: Number) => {
+  removeAllCSSClass(airQuality);
+  if (result < 50) {
+    setMultipleCSSClass(airQuality, "good");
+  } else if (result > 50 && result < 100) {
+    setMultipleCSSClass(airQuality, "moderate");
+  } else if (result > 100 && result < 150) {
+    setMultipleCSSClass(airQuality, "unhealthy-sensitive");
+  }
 };

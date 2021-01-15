@@ -3,13 +3,18 @@ import { LatLngExpression } from "leaflet";
 import { changeLocation } from "../api/leaflet";
 import { airQuality, localTime, city } from "./selectors";
 import { showToast } from "./toast";
-import { removeMessageError, setMultipleHtmlElements } from "./utility";
+import {
+  handleAirQualityColor,
+  removeMessageError,
+  setMultipleHtmlElements,
+} from "./utility";
 
 export const fetchAutoGeolocation = async (url: string): Promise<any> => {
   try {
     const response = axios.get(url);
     response.then((data) => {
       console.log(data);
+      handleAirQualityColor(data.data.data.aqi);
       setMultipleHtmlElements(airQuality, data.data.data.aqi ?? "Not Found");
       setMultipleHtmlElements(localTime, data.data.data.time.s ?? "Not Found");
       setMultipleHtmlElements(city, data.data.data.city.name ?? "Not Found");
@@ -27,6 +32,7 @@ export const fetchOnInput = async (url: string): Promise<any> => {
       if (data.data.status != "ok") {
         showToast();
       } else {
+        handleAirQualityColor(data.data.data.aqi);
         setMultipleHtmlElements(airQuality, data.data.data.aqi ?? "Not Found");
         setMultipleHtmlElements(
           localTime,
