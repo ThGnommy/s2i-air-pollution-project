@@ -28,7 +28,6 @@ export const fetchOnInput = async (url: string): Promise<any> => {
   try {
     const response = axios.get(url);
     response.then((data) => {
-      console.log(data);
       if (data.data.status != "ok") {
         showToast();
       } else {
@@ -44,7 +43,6 @@ export const fetchOnInput = async (url: string): Promise<any> => {
         const latlong: LatLngExpression = [lat, long];
         changeLocation(latlong);
         removeMessageError();
-        console.log(airQuality, localTime, city);
       }
     });
   } catch (error) {

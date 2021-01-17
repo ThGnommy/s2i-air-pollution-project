@@ -1,9 +1,9 @@
-import L, { LatLngExpression } from "leaflet";
+import L, { LatLngExpression, map } from "leaflet";
 import icon from "leaflet/dist/images/marker-icon-2x.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/leaflet.css";
 
-export const mymap = L.map("mapid", { zoomControl: false });
+export let mymap: any = L.map("mapid", { zoomControl: false });
 
 let mapMarker = {};
 

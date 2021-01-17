@@ -8,8 +8,6 @@ module.exports = {
   mode: "production",
   entry: {
     app: "./src/index.ts",
-    leaflet: "./src/api/leaflet.ts",
-    fetch: "./src/util/fetch.ts",
     slider: "./src/util/slider.ts",
   },
   // devtool: "inline-source-map",

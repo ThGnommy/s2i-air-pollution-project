@@ -8,9 +8,11 @@ export const showMessageError = () => {
 };
 
 export const removeMessageError = () => {
-  const message = document.getElementById("error-message")! as HTMLSpanElement;
-  detailsContainer.removeChild(message);
-  detailsContainer.classList.remove("hide-details");
+  const message = document.getElementById("error-message") as HTMLSpanElement;
+  if (message) {
+    detailsContainer.removeChild(message);
+    detailsContainer.classList.remove("hide-details");
+  }
 };
 
 export const setMultipleHtmlElements = (
