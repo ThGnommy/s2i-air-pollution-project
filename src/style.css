@@ -144,24 +144,15 @@ p.hazardous {
 }
 
 .show-details-container {
-  animation: show 1s linear 1s forwards;
-  /* -moz-animation: show 1s linear 1s forwards; */
-}
-
-.hide-animation {
-  animation: show 1s linear 1s forwards;
+  /* animation: show 1s linear 1s forwards; */
+  animation-name: show;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes show {
-  0% {
-    top: 150%;
-  }
-  100% {
-    top: 30%;
-  }
-}
-
-@-moz-keyframes show {
   0% {
     top: 150%;
   }
@@ -199,7 +190,10 @@ p.hazardous {
 
 #toast span.show-toast {
   visibility: visible;
-  animation: toast-animation 3s linear;
+  /* animation: toast-animation 3s linear; */
+  animation-name: toast-animation;
+  animation-duration: 3s;
+  animation-timing-function: linear;
 }
 
 @keyframes toast-animation {

@@ -1,6 +1,3 @@
-// api key = c8f3fb8806f350497f7a43ce886f000306bced4a
-// mapbox access token = pk.eyJ1IjoiZ25vbW15cyIsImEiOiJja2pibDFmY2wwbHNoMnVzY2s4cXlrNmtvIn0.0iJX7gXFiTMCqaQHrtwkLA
-
 import "../src/reset.css";
 import "../src/style.css";
 import { LatLngExpression } from "leaflet";
