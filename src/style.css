@@ -144,15 +144,40 @@ p.hazardous {
 }
 
 .show-details-container {
-  /* animation: show 1s linear 1s forwards; */
-  animation-name: show;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
+  animation: show 1s linear 1s forwards;
+  -o-animation: show 1s linear 1s forwards;
+  -webkit-animation: show 1s linear 1s forwards;
+  -moz-animation: show 1s linear 1s forwards;
 }
 
 @keyframes show {
+  0% {
+    top: 150%;
+  }
+  100% {
+    top: 30%;
+  }
+}
+
+@-o-keyframes show {
+  0% {
+    top: 150%;
+  }
+  100% {
+    top: 30%;
+  }
+}
+
+@-webkit-keyframes show {
+  0% {
+    top: 150%;
+  }
+  100% {
+    top: 30%;
+  }
+}
+
+@-moz-keyframes show {
   0% {
     top: 150%;
   }
