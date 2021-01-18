@@ -68,11 +68,9 @@ const showContainerDetails = async () => {
   await navigator.geolocation.getCurrentPosition(
     () => {
       detailsContainer.classList.add("show-details-container");
-      console.log("success");
     },
     () => {
       detailsContainer.classList.add("show-details-container");
-      console.log("denied");
     }
   );
 };

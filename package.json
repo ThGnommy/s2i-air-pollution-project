@@ -33,6 +33,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "clean-webpack-plugin": "^3.0.0",
+    "image-webpack-loader": "^7.0.1",
     "leaflet": "^1.7.1",
     "node-env-webpack-plugin": "^1.1.0"
   }

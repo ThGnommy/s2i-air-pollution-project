@@ -10,7 +10,7 @@ module.exports = {
     app: "./src/index.ts",
     slider: "./src/util/slider.ts",
   },
-  // devtool: "inline-source-map",
+  // devtool: "source-map",
   devtool: NodeEnvPlugin.devtool,
   devServer: {
     open: true,
@@ -43,15 +43,42 @@ module.exports = {
         exclude: "/node_modules",
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: "file-loader",
+        test: /\.(gif|png|jpg|jpe?g|svg)$/i,
+        use: [
+          "file-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+              },
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              webp: {
+                quality: 40,
+              },
+            },
+          },
+        ],
       },
     ],
   },
   resolve: {
     extensions: [".ts", ".js"],
   },
+  performance: {
+    hints: false,
+  },
   optimization: {
+    runtimeChunk: "single",
     splitChunks: {
       chunks: "all",
     },

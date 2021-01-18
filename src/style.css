@@ -7,7 +7,7 @@ body {
 
 #container {
   height: 100vh;
-  background: darkcyan;
+  /* background: darkcyan; */
 }
 
 #top-container {
@@ -16,6 +16,10 @@ body {
   align-items: center;
   flex-direction: column;
   height: 40vh;
+  background-image: url("../images/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #mapid {
   height: 60vh;
