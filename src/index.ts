@@ -21,22 +21,20 @@ button.addEventListener("click", (e) => {
   } else return;
 });
 
-const getGeolocation = () => {
-  if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const latlong: LatLngExpression = [
-        position.coords.latitude,
-        position.coords.longitude,
-      ];
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
+const getGeolocation = async () => {
+  await navigator.geolocation.getCurrentPosition((position) => {
+    const latlong: LatLngExpression = [
+      position.coords.latitude,
+      position.coords.longitude,
+    ];
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
 
-      changeLocation(latlong);
-      fetchAutoGeolocation(
-        `https://api.waqi.info/feed/geo:${lat};${lng}/?token=${process.env.API_KEY}`
-      );
-    }, handleError);
-  }
+    changeLocation(latlong);
+    fetchAutoGeolocation(
+      `https://api.waqi.info/feed/geo:${lat};${lng}/?token=${process.env.API_KEY}`
+    );
+  }, handleError);
 };
 
 const handleError = (error: any) => {

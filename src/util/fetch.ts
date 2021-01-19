@@ -13,7 +13,6 @@ export const fetchAutoGeolocation = async (url: string): Promise<any> => {
   try {
     const response = axios.get(url);
     response.then((data) => {
-      console.log(data);
       handleAirQualityColor(data.data.data.aqi);
       setMultipleHtmlElements(airQuality, data.data.data.aqi ?? "Not Found");
       setMultipleHtmlElements(localTime, data.data.data.time.s ?? "Not Found");

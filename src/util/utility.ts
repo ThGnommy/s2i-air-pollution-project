@@ -47,5 +47,11 @@ export const handleAirQualityColor = (result: Number) => {
     setMultipleCSSClass(airQuality, "moderate");
   } else if (result > 100 && result < 150) {
     setMultipleCSSClass(airQuality, "unhealthy-sensitive");
+  } else if (result > 150 && result < 200) {
+    setMultipleCSSClass(airQuality, "unhealthy");
+  } else if (result > 200 && result < 300) {
+    setMultipleCSSClass(airQuality, "very-unhealthy");
+  } else if (result > 300) {
+    setMultipleCSSClass(airQuality, "hazardous");
   }
 };
