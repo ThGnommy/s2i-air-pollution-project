@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 
 export let mymap: any = L.map("mapid", { zoomControl: false });
 
-let mapMarker = {};
+let mapMarker: L.Marker;
 
 mymap.setView([51.505, -0.09], 13);
 
@@ -32,6 +32,9 @@ export const iconMarker = L.icon({
 mymap.panBy([0, -100]);
 
 export const changeLocation = (latlong: LatLngExpression) => {
+  if (mapMarker) {
+    mapMarker.remove();
+  }
   mymap.flyTo(latlong, 13);
   mymap.once("moveend", () => {
     mymap.panBy([0, -100]);
