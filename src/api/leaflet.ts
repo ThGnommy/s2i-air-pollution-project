@@ -32,11 +32,11 @@ export const iconMarker = L.icon({
 mymap.panBy([0, -100]);
 
 export const changeLocation = (latlong: LatLngExpression) => {
-  if (mapMarker) {
-    mapMarker.remove();
-  }
   mymap.flyTo(latlong, 13);
   mymap.once("moveend", () => {
+    if (mapMarker) {
+      mapMarker.remove();
+    }
     mymap.panBy([0, -100]);
     mapMarker = L.marker(latlong, { icon: iconMarker }).addTo(mymap);
   });
