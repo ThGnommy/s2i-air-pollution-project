@@ -3,7 +3,7 @@ import icon from "leaflet/dist/images/marker-icon-2x.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/leaflet.css";
 
-export let mymap: any = L.map("mapid", { zoomControl: false });
+export let mymap: L.Map = L.map("mapid", { zoomControl: false });
 
 let mapMarker: L.Marker;
 
