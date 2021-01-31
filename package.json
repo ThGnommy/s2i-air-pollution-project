@@ -10,7 +10,7 @@
     "build": "webpack --env.production"
   },
   "keywords": [],
-  "author": "",
+  "author": "Thomas Brandoli",
   "license": "ISC",
   "devDependencies": {
     "@types/leaflet": "^1.5.19",

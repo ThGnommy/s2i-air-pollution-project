@@ -21,3 +21,15 @@ export const detailsContainer = document.getElementById(
 export const mobileDetailsContainer = document.getElementById(
   "slider-container"
 )! as HTMLDivElement;
+
+// Slider Selectors
+
+export const sliders = document.getElementsByClassName(
+  "slider"
+)! as HTMLCollectionOf<HTMLDivElement>;
+export const arrowLeft: any = document.getElementById(
+  "arrow-left"
+)! as HTMLElement;
+export const arrowRight: any = document.getElementById(
+  "arrow-right"
+)! as HTMLElement;

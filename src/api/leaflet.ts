@@ -1,4 +1,4 @@
-import L, { LatLngExpression, map } from "leaflet";
+import L, { LatLngExpression } from "leaflet";
 import icon from "leaflet/dist/images/marker-icon-2x.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/leaflet.css";

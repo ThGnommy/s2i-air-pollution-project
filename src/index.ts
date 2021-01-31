@@ -8,8 +8,8 @@ import { showMessageError } from "./util/utility";
 
 let inputValue: string = "";
 
-input.addEventListener("input", (e: any) => {
-  inputValue = e.target.value;
+input.addEventListener("input", (e) => {
+  if (e.target instanceof HTMLInputElement) inputValue = e.target.value;
 });
 
 button.addEventListener("click", (e) => {
@@ -21,7 +21,7 @@ button.addEventListener("click", (e) => {
   } else return;
 });
 
-const getGeolocation = async () => {
+const getGeolocation = async (): Promise<void> => {
   await navigator.geolocation.getCurrentPosition((position) => {
     const latlong: LatLngExpression = [
       position.coords.latitude,
@@ -62,7 +62,7 @@ const handleError = (error: any) => {
   }
 };
 
-const showContainerDetails = async () => {
+const showContainerDetails = async (): Promise<void> => {
   await navigator.geolocation.getCurrentPosition(
     () => {
       detailsContainer.classList.add("show-details-container");

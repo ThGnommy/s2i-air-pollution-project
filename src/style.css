@@ -96,7 +96,6 @@ button p:hover {
   z-index: 900;
   -webkit-box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 5px 15px -1px rgba(0, 0, 0, 0.5);
-  /* animation: show 1s ease-in-out 1s forwards; */
 }
 
 .city-details-container div {
@@ -219,7 +218,6 @@ p.hazardous {
 
 #toast span.show-toast {
   visibility: visible;
-  /* animation: toast-animation 3s linear; */
   animation-name: toast-animation;
   animation-duration: 3s;
   animation-timing-function: linear;

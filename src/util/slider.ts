@@ -1,8 +1,4 @@
-const sliders = document.getElementsByClassName(
-  "slider"
-)! as HTMLCollectionOf<HTMLDivElement>;
-const arrowLeft: any = document.getElementById("arrow-left")! as HTMLElement;
-const arrowRight: any = document.getElementById("arrow-right")! as HTMLElement;
+import { sliders, arrowRight, arrowLeft } from "./selectors";
 
 let slideIndex: number = 1;
 
